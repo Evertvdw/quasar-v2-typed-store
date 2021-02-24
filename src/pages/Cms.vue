@@ -14,7 +14,8 @@ export default class ClassComponent extends Vue {
   get cmsStore() {
     return cmsStore(this.$store);
   }
-  // There seems to be a weird error when I do it like this though, it is like this variable is declared and
+
+  // There seems to be a weird error when I do it like below though, it is like this variable is declared and
   // stored on this component before the dynamic module is there. It complains about .getters of undefined in the template
   // In Vue2 the code below worked, but switching to the above is not so bad.
   // cmsStore = cmsStore(this.$store);

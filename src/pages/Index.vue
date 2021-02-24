@@ -20,6 +20,9 @@ import { Vue, Options } from 'vue-class-component';
   components: { ExampleComponent },
 })
 export default class PageIndex extends Vue {
+  // You can either use the $tstore.modules directly or if you prefer declare the module like:
+  // page = $tstore.modules.page
+
   todos: Todo[] = [
     {
       id: 1,
@@ -45,5 +48,14 @@ export default class PageIndex extends Vue {
   meta: Meta = {
     totalCount: 1200,
   };
+
+  created() {
+    // All actions are typed and can be accessed by calling the function in .actions or by using dispatch
+    // like: this.$tstore.modules.page.dispatch('addPage')
+    void this.$tstore.modules.page.actions.addPage({
+      amount: 5,
+      interval: 1000,
+    });
+  }
 }
 </script>
