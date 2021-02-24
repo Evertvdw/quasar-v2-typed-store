@@ -6,6 +6,8 @@
       :todos="todos"
       :meta="meta"
     ></example-component>
+    Page store {{ $tstore.modules.page.getters.blocks }}
+    <q-btn to="/cms">To CMS!</q-btn>
   </q-page>
 </template>
 

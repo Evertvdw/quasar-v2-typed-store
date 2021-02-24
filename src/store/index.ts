@@ -1,6 +1,7 @@
 import { store } from 'quasar/wrappers';
 import { createStore, Module } from 'vuex-smart-module';
 import { page } from './page';
+import { Store } from 'vuex';
 /*
  * If not building with SSR mode, you can
  * directly export the Store instantiation;
@@ -14,6 +15,12 @@ const rootConfig = {
     page,
   },
 };
+
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    $store: Store<unknown>;
+  }
+}
 
 export const root = new Module(rootConfig);
 

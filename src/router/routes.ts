@@ -4,7 +4,13 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/Index.vue') }],
+    children: [
+      { path: '', component: () => import('pages/Index.vue') },
+      {
+        path: 'cms',
+        component: () => import(/* webpackChunkName: "cms" */ 'pages/Cms.vue'),
+      },
+    ],
   },
 
   // Always leave this as last one,
